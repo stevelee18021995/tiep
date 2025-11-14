@@ -1,0 +1,83 @@
+/* Toast custom styles - Ensure highest priority */
+[data-react-hot-toast] {
+  z-index: 99999 !important;
+  pointer-events: none !important;
+}
+
+/* Toast container */
+[data-react-hot-toast] > div {
+  pointer-events: none !important;
+}
+
+/* Toast items should be interactive */
+[data-react-hot-toast] [role="status"],
+[data-react-hot-toast] [role="alert"] {
+  pointer-events: auto !important;
+  user-select: none;
+  cursor: default;
+  position: relative;
+  z-index: 1;
+}
+
+/* Toast close button (X button) */
+[data-react-hot-toast] [role="status"] > div:last-child,
+[data-react-hot-toast] [role="alert"] > div:last-child {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+}
+
+/* Specific styling for dismiss button */
+[data-react-hot-toast] button {
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  z-index: 2 !important;
+  position: relative;
+}
+
+/* Custom success toast styling */
+[data-react-hot-toast] [data-type="success"] {
+  background: #10b981 !important;
+  color: white !important;
+  border: none;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Custom error toast styling */
+[data-react-hot-toast] [data-type="error"] {
+  background: #ef4444 !important;
+  color: white !important;
+  border: none;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+/* Toast enter animation */
+[data-react-hot-toast] [data-react-hot-toast-item][data-visible="true"] {
+  animation: toast-enter 0.35s cubic-bezier(0.21, 1.02, 0.73, 1) forwards;
+}
+
+/* Toast exit animation */
+[data-react-hot-toast] [data-react-hot-toast-item][data-visible="false"] {
+  animation: toast-exit 0.4s cubic-bezier(0.06, 0.71, 0.55, 1) forwards;
+}
+
+@keyframes toast-enter {
+  0% {
+    transform: translate3d(300px, 0, 0) scale(0.6);
+    opacity: 0;
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes toast-exit {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: translate3d(300px, 0, 0) scale(0.6);
+    opacity: 0;
+  }
+}

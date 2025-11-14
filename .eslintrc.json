@@ -1,0 +1,17 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {},
+  "ignorePatterns": [
+    ".next/**",
+    "out/**", 
+    "build/**",
+    "dist/**",
+    "node_modules/**",
+    "coverage/**",
+    ".nyc_output/**",
+    "*.config.js",
+    "*.config.ts", 
+    "*.config.mjs",
+    "public/**"
+  ]
+}
